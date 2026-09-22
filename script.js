@@ -1,17 +1,7 @@
-
-const key='worldvoicecm-cart-v1';
-let cart=JSON.parse(localStorage.getItem(key)||'[]');
-const count=document.querySelector('#count'),items=document.querySelector('#items'),total=document.querySelector('#total');
-const drawer=document.querySelector('#drawer'),shade=document.querySelector('#shade');
-function render(){
- count.textContent=cart.length;
- items.innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-row"><span>${x.name}</span><span>$${Number(x.price).toFixed(2)} <button onclick="removeItem(${i})">×</button></span></div>`).join(''):'<p>Your bag is empty.</p>';
- total.textContent=cart.reduce((s,x)=>s+Number(x.price),0).toFixed(2);
- localStorage.setItem(key,JSON.stringify(cart));
-}
-window.removeItem=i=>{cart.splice(i,1);render()}
-document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{cart.push({name:b.dataset.name,price:b.dataset.price});render();openBag()});
-function openBag(){drawer.classList.add('open');shade.classList.add('open')}
-function closeBag(){drawer.classList.remove('open');shade.classList.remove('open')}
-document.querySelector('#bagBtn').onclick=openBag;document.querySelector('#close').onclick=closeBag;shade.onclick=closeBag;
-document.querySelector('#clear').onclick=()=>{cart=[];render()};render();
+const KEY='worldvoicecm-cart';let cart=JSON.parse(localStorage.getItem(KEY)||'[]');
+const count=document.getElementById('count'),drawer=document.getElementById('cartDrawer'),shade=document.getElementById('shade'),items=document.getElementById('cartItems'),total=document.getElementById('cartTotal'),toast=document.getElementById('toast');
+function render(){count.textContent=cart.length;items.innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-row"><span>${x.name}</span><span>$${Number(x.price).toFixed(2)} <button onclick="removeItem(${i})">×</button></span></div>`).join(''):'<p>Your bag is empty.</p>';total.textContent=cart.reduce((a,x)=>a+Number(x.price),0).toFixed(2);localStorage.setItem(KEY,JSON.stringify(cart));}
+function openCart(){drawer.classList.add('open');shade.classList.add('open')}function closeCart(){drawer.classList.remove('open');shade.classList.remove('open')}
+window.removeItem=i=>{cart.splice(i,1);render()};
+document.querySelectorAll('.add-btn').forEach(b=>b.addEventListener('click',()=>{cart.push({name:b.dataset.name,price:b.dataset.price});render();toast.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>toast.style.display='none',900);openCart()}));
+document.getElementById('bagBtn').onclick=openCart;document.getElementById('closeCart').onclick=closeCart;shade.onclick=closeCart;document.getElementById('clearCart').onclick=()=>{cart=[];render()};render();
