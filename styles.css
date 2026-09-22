@@ -12,3 +12,11 @@ main{max-width:1320px;margin:auto;padding:30px 30px 60px}.section-title h2{font-
 .product>img{height:205px;object-fit:contain;object-position:center;background:#f7f9fb;padding:8px}
 .pi{margin-top:auto}
 @media(max-width:750px){.cat{height:200px}.product>img{height:230px}}
+
+/* Final cleanup: source images are local and labels are not duplicated */
+.heroart img{object-position:center center}
+.cat img{object-fit:cover;object-position:center}
+.cat:after,.cat div{display:none}
+.product>img{height:190px;object-fit:contain;background:#fff;padding:10px}
+.pi h3{min-height:34px;font-size:14px}
+@media(max-width:750px){.product>img{height:220px}}
