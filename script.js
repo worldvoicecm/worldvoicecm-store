@@ -1,7 +1,5 @@
-const KEY='worldvoicecm-cart';let cart=JSON.parse(localStorage.getItem(KEY)||'[]');
-const count=document.getElementById('count'),drawer=document.getElementById('cartDrawer'),shade=document.getElementById('shade'),items=document.getElementById('cartItems'),total=document.getElementById('cartTotal'),toast=document.getElementById('toast');
-function render(){count.textContent=cart.length;items.innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-row"><span>${x.name}</span><span>$${Number(x.price).toFixed(2)} <button onclick="removeItem(${i})">×</button></span></div>`).join(''):'<p>Your bag is empty.</p>';total.textContent=cart.reduce((a,x)=>a+Number(x.price),0).toFixed(2);localStorage.setItem(KEY,JSON.stringify(cart));}
-function openCart(){drawer.classList.add('open');shade.classList.add('open')}function closeCart(){drawer.classList.remove('open');shade.classList.remove('open')}
-window.removeItem=i=>{cart.splice(i,1);render()};
-document.querySelectorAll('.add-btn').forEach(b=>b.addEventListener('click',()=>{cart.push({name:b.dataset.name,price:b.dataset.price});render();toast.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>toast.style.display='none',900);openCart()}));
-document.getElementById('bagBtn').onclick=openCart;document.getElementById('closeCart').onclick=closeCart;shade.onclick=closeCart;document.getElementById('clearCart').onclick=()=>{cart=[];render()};render();
+let cart=JSON.parse(localStorage.getItem("worldvoicecm-cart")||"[]");
+function save(){localStorage.setItem("worldvoicecm-cart",JSON.stringify(cart));render()}
+function render(){document.getElementById("count").textContent=cart.length;document.getElementById("cartitems").innerHTML=cart.length?cart.map((x,i)=>`<div class="cartrow"><span>${x.name}</span><span>$${x.price.toFixed(2)} <button onclick="removeItem(${i})">×</button></span></div>`).join(""):"<p>Your bag is empty.</p>";document.getElementById("total").textContent="$"+cart.reduce((s,x)=>s+x.price,0).toFixed(2)}
+function addItem(name,price){cart.push({name,price});save();const t=document.getElementById("toast");t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",1200)}
+function removeItem(i){cart.splice(i,1);save()}function clearCart(){cart=[];save()}function toggleCart(on){document.getElementById("cart").classList.toggle("open",on);document.getElementById("shade").classList.toggle("open",on)}render();
