@@ -1,3 +1,3 @@
-# WORLDVOICECM STORE V3 FIXED
+# WORLDVOICECM Store
 
-Single-file GitHub Pages store. All images are embedded directly in index.html.
+Static GitHub Pages store for WORLDVOICECM. Product names and prices are demo content until replaced with the final catalog.
