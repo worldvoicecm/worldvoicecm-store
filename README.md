@@ -1,3 +1,3 @@
 # WORLDVOICECM Store
 
-Static GitHub Pages storefront. Product names and prices are demo content and can be replaced with the final catalog.
+GitHub Pages version with all website images embedded directly inside index.html, so there are no image paths to break.
