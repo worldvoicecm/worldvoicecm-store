@@ -1,3 +1,1 @@
-# WORLDVOICECM
-
-Static GitHub Pages storefront. Upload all files and the assets folder to the repository root.
+WORLDVOICECM static GitHub Pages site. Upload index.html and the assets folder to the repository root.
