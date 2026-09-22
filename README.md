@@ -1,8 +1,1 @@
-WORLDVOICECM GitHub Pages — CART FIXED
-
-Upload index.html to the repository root and replace the old index.html.
-
-The six visible ADD TO BAG buttons are now clickable.
-The BAG counter updates and the cart is saved in the browser with localStorage.
-Click BAG to see the products currently added.
-The main design image remains embedded in index.html, so no image folder is required.
+WORLDVOICECM clean GitHub Pages build. One self-contained index.html. No duplicate navigation and no external image paths. Six Add to Bag areas and cart counter are functional.
