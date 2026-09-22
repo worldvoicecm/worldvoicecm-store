@@ -1,1 +1,1 @@
-let c=0;document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{document.getElementById('count').textContent=++c;let t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1200)});
+let n=0;function add(){document.getElementById("count").textContent=++n;const t=document.getElementById("toast");t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",1200)}

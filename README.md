@@ -1,3 +1,3 @@
-# WORLDVOICECM Store
+# WORLDVOICECM
 
-Static GitHub Pages store for WORLDVOICECM. Product names and prices are demo content until replaced with the final catalog.
+Static GitHub Pages storefront. Upload all files and the assets folder to the repository root.
