@@ -1,0 +1,1 @@
+let n=0;function add(){n++;document.getElementById("count").textContent=n;const t=document.getElementById("toast");t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",1200)}
